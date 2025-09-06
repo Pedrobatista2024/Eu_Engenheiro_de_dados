@@ -1,0 +1,8 @@
+Relatório de Análise Preliminar de Criptomoedas
+                                   
+Criptomoeda: bitcoin
+Preço Mínimo no Período: R$ 301,895.30
+Preço Máximo no Período: R$ 669,678.51
+Data do Preço Máximo: 2025-07-15 00:00:00
+Maior Variação Diária Positiva: 10.51%
+Data da Maior Variação: 2024-11-12 00:00:00 

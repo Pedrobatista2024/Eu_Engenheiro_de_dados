@@ -46,10 +46,36 @@ try:
         
         tabela_precos['variacao_diaria'] = tabela_precos['variacao_diaria'].fillna(0)
 
-        tabela_precos.to_csv('dados_bitcoin_analise.csv', index=False)
+        minimo = tabela_precos['preco'].min().round(2)
+        maximo = tabela_precos['preco'].max().round(2)
+        data_maximo = tabela_precos.loc[tabela_precos['preco'].idxmax(), 'data']
+        max_variacao_diaria = tabela_precos['variacao_diaria'].max()
+        dt_max_var_diaria = tabela_precos.loc[tabela_precos['variacao_diaria'].idxmax(), 'data']
 
-        print("DataFrame salvo com sucesso em 'dados_bitcoin_analise.csv'")
-        
+        try:
+            tabela_precos.to_csv('dados_bitcoin_analise.csv', index=False)
+            print("DataFrame salvo com sucesso em 'dados_bitcoin_analise.csv'")
+        except:
+            print(f'Erro ao criar o Arquivo CSV')
+
+        try:
+            texto = f"""Relatório de Análise Preliminar de Criptomoedas
+                                   
+Criptomoeda: {cripto}
+Preço Mínimo no Período: R$ {minimo:,.2f}
+Preço Máximo no Período: R$ {maximo:,.2f}
+Data do Preço Máximo: {data_maximo}
+Maior Variação Diária Positiva: {max_variacao_diaria:,.2f}%
+Data da Maior Variação: {dt_max_var_diaria} """
+
+            with open('relatorio_bitcoin.txt', 'w', encoding='utf-8') as arquivo:
+                arquivo.write(texto)
+            print("Relatório de Análise Preliminar de Criptomoedas Criado com Sucesso")
+        except:
+            print(f'Erro ao Criar o Relatório de Análise Preliminar de Criptomoedas')
+              
+    
+
     else:
         print(f'Erro na requisição: {response.status_code}')
 

@@ -20,7 +20,7 @@ import pandas as pd
 
 cripto = 'bitcoin'
 
-url = 'https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=brl&days=365'
+url = 'https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=brl&days=30'
 
 try:
 

@@ -51,6 +51,26 @@ except requests.exceptions.RequestException as e:
 print(dados_bitcoin_novos)
 print('*'*25)
 print(dados_sp500_novos.head())
+print('*'*25)
+dados_diarios_combinados = pd.merge(dados_bitcoin_novos, dados_sp500_novos, on='data', how='inner')
+print(dados_diarios_combinados.head())
+
+nome_parquet = 'dados_combinados.parquet'
+if os.path.exists(nome_parquet):
+    print("Arquivo existente encontrado. Anexando novos dados...")
+
+    df_existente = pd.read_parquet(nome_parquet)
+
+    dados_diarios_combinados_atualizados = pd.concat([df_existente, dados_diarios_combinados], ignore_index=True)
+
+else:
+    print("Arquivo não encontrado. Criando um novo arquivo com os dados.")
+
+    dados_diarios_combinados_atualizados = dados_diarios_combinados
+
+dados_diarios_combinados_atualizados.to_parquet(nome_parquet, index=False)
+
+print(f"Pipeline concluído. {len(dados_diarios_combinados_atualizados)} linhas salvas em '{nome_parquet}'.")
 
 
 
@@ -59,3 +79,4 @@ print(dados_sp500_novos.head())
 
 
 
+ 

@@ -48,7 +48,7 @@ except requests.exceptions.RequestException as e:
     print(f'ocorreu um erro {e}')
     dados_bitcoin_novos = pd.DataFrame()
 
-print(dados_bitcoin_novos)
+print(dados_bitcoin_novos.head())
 print('*'*25)
 print(dados_sp500_novos.head())
 print('*'*25)

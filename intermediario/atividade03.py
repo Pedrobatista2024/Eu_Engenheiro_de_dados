@@ -28,3 +28,11 @@ df['media_movel_7d'] = df['preco'].rolling(window=7).mean()
 df['boleana'] = df['preco'] > df['media_movel_7d']
 
 print(df.head(69))
+
+cruzamento_alta = df[(df['boleana'] == True) & (df['boleana'].shift(1) == False)]
+
+cruzamento_baixa = df[(df['boleana'] == False) & (df['boleana'].shift(1) == True)]
+
+
+print(f'{cruzamento_alta['data']}')   
+print(f'{cruzamento_baixa['data']}')

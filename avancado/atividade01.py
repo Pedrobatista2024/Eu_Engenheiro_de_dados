@@ -1,5 +1,7 @@
 import requests
+import pandas as pd
 from bs4 import BeautifulSoup
+pd.set_option('display.float_format', '{:.0f}'.format)
 
 url = 'https://coinmarketcap.com/'
 
@@ -45,4 +47,15 @@ for linha in linhas[:5]:
         'volume_24h': volume_24h
     })
     
+def limpar_valor(valor_texto):
+    if isinstance(valor_texto, str):
+        return float(valor_texto.replace('$', '').replace(',', ''))
+    return valor_texto
 
+df_final = pd.DataFrame(dados_criptos)
+
+df_final['preco'] = df_final['preco'].apply(limpar_valor)
+df_final['market_cap'] = df_final['market_cap'].str[-15:].apply(limpar_valor)
+df_final['volume_24h'] = df_final['volume_24h'].str[:-1].apply(limpar_valor)
+
+print(df_final)

@@ -62,3 +62,47 @@ df.drop(columns=['origin', 'location'], inplace=True)
 
 print(df.head())
 
+localizacoes = pd.concat([df['nome_localizacao'], df['nome_origem']]).unique()
+
+df_localizacoes = pd.DataFrame(localizacoes, columns=['nome_localizacao'])
+
+df_localizacoes.reset_index(inplace=True)
+df_localizacoes.rename(columns={'index': 'id_localizacao'}, inplace=True)
+
+print(df_localizacoes.head())
+
+df = pd.merge(
+    df, 
+    df_localizacoes,
+    left_on='nome_localizacao', 
+    right_on='nome_localizacao',
+    how='left'
+)
+
+df.rename(columns={'id_localizacao': 'id_localizacao_fk'}, inplace=True)
+df.drop(columns=['nome_localizacao'], inplace=True)
+
+
+df = pd.merge(
+    df,
+    df_localizacoes,
+    left_on='nome_origem', 
+    right_on='nome_localizacao',
+    how='left',
+    suffixes=('_pers', '_orig') 
+)
+df.rename(columns={'id_localizacao': 'id_origem_fk'}, inplace=True)
+df.drop(columns=['nome_origem', 'nome_localizacao'], inplace=True) 
+
+colunas_personagens = [
+    'id_personagem', 'name', 'status', 'species', 'gender', 
+    'id_localizacao_fk', 'id_origem_fk'
+]
+df_personagens_final = df[colunas_personagens]
+
+
+df_personagens_final.rename(columns={
+    'name': 'nome', 'status': 'status', 'species': 'espécie', 'gender': 'gênero'
+}, inplace=True)
+
+print(df_personagens_final.head())

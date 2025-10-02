@@ -12,6 +12,8 @@ import requests
 import time
 import pandas as pd
 
+pd.set_option('display.max_columns', None)
+
 url = 'https://rickandmortyapi.com/api/character/'
 todos_os_dados = []
 while url:

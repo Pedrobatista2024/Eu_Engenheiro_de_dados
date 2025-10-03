@@ -1,33 +1,39 @@
-# 🧑‍💻 Eu, Engenheiro de Dados
+# 🚀 Projeto: Pipeline de Engenharia de Dados (Simulação Real com IA GESTORA)
 
-Este repositório que simula um ambiente de trabalho real para um Engenheiro de Dados júnior. O objetivo é documentar minha jornada de aprendizado e desenvolvimento, resolvendo tarefas práticas designadas por uma "Gestora IA".
+Este repositório documenta um projeto prático de Engenharia de Dados, simulando o ambiente de trabalho e as tarefas (ETL/ELT) designadas por uma **"Gestora IA"**. O objetivo é demonstrar a jornada completa de dados, desde a coleta em fontes não estruturadas até a modelagem relacional.
 
-A cada nova atividade, um novo desafio é proposto, e a resolução é registrada aqui. O foco é a aplicação de conceitos de engenharia de dados em cenários práticos, desde a coleta de dados até a visualização e análise.
-
----
-
-### **Estrutura do Projeto**
-
-O projeto está organizado em três níveis de dificuldade, totalizando 9 atividades:
-
-* **Nível Básico (Atividades 1-3):** Foco em fundamentos como coleta de dados, limpeza e análise exploratória.
-* **Nível Médio (Atividades 4-6):** Abrange tópicos mais complexos, como automação de pipelines, integração de dados e uso de bancos de dados.
-* **Nível Difícil (Atividades 7-9):** Desafios que envolvem otimização de performance, arquitetura de soluções e uso de ferramentas avançadas.
+A cada nova atividade, um novo desafio é proposto, e a resolução é registrada aqui. O foco é a aplicação de conceitos em cenários práticos, construindo pipelines robustos e otimizados.
 
 ---
 
-### **Tecnologias Utilizadas**
+## Estrutura do Projeto
 
-As atividades são resolvidas utilizando ferramentas e bibliotecas comuns no ecossistema de engenharia de dados, incluindo:
+O projeto está organizado em **três níveis de dificuldade**, totalizando **9 atividades**, que cobrem o ciclo de vida completo do dado:
 
-* **Python:** Linguagem principal para os scripts.
-* **Pandas & NumPy:** Para manipulação e análise de dados.
-* **APIs:** Para extração de dados de diversas fontes.
-* **GitHub:** Para versionamento e colaboração.
-* **Ambiente de Desenvolvimento:** Os projetos são executados em um ambiente virtual (`venv`) para garantir a consistência das dependências.
+### Nível Básico (Atividades 1-3)
+Foco em fundamentos: Coleta de dados via **API**, **Limpeza** de dados, Enriquecimento de *datasets* (Ex.: Variação Diária) e Exportação para formatos de análise (CSV).
+
+### Nível Intermediário (Atividades 4-6)
+Desafios mais complexos: **Integração de Múltiplas Fontes** (Criptoativos e Índices Financeiros), Otimização de Armazenamento (**Parquet**), Simulação de **Automação Diária** e Análise de Séries Temporais (Médias Móveis).
+
+### Nível Avançado (Atividades 7-9)
+Arquitetura e Robustez: Implementação de **Web Scraping** (Beautiful Soup), Tratamento de APIs (Paginação e **Rate Limiting/429**), **Modelagem Dimensional** (Desaninhamento de JSON) e Carregamento final em **SQLite** para análise.
 
 ---
 
-### **Como Contribuir ou Acompanhar**
+## 🛠️ Tecnologias Chave Utilizadas
 
-Sinta-se à vontade para acompanhar a minha jornada. Cada atividade será documentada com um passo a passo claro, o código utilizado e os resultados obtidos.
+As atividades são resolvidas utilizando ferramentas e bibliotecas essenciais no ecossistema de Engenharia de Dados:
+
+* **Python:** Linguagem principal para scripts e orquestração.
+* **Pandas:** Para manipulação, limpeza e transformação de dados.
+* **Requests & BeautifulSoup:** Para requisições HTTP e Web Scraping.
+* **SQLite (sqlite3):** Destino final para simulação de um Data Warehouse relacional.
+* **Parquet:** Utilizado para armazenamento eficiente e otimizado.
+* **APIs:** CoinGecko, Yahoo Finance e APIs públicas diversas.
+
+---
+
+## Como Contribuir ou Acompanhar
+
+Sinta-se à vontade para acompanhar minha jornada. Cada atividade será documentada com o passo a passo da solução, o código utilizado e os resultados obtidos.

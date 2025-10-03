@@ -21,6 +21,7 @@
 import requests
 import time
 import pandas as pd
+import sqlite3
 
 pd.set_option('display.max_columns', None)
 
@@ -106,3 +107,26 @@ df_personagens_final.rename(columns={
 }, inplace=True)
 
 print(df_personagens_final.head())
+
+nome_do_arquivo_sqlite = 'rickandmorty_analise.db'
+
+conn = sqlite3.connect(nome_do_arquivo_sqlite)
+
+df_personagens_final.to_sql(
+    'personagens',
+    conn,
+    if_exists='replace', 
+    index=False
+)
+
+df_localizacoes.to_sql(
+    'localizacoes',
+    conn,
+    if_exists='replace',
+    index=False
+)
+
+conn.close()
+
+print(f'\nCarregamento (ETL) concluido com sucesso!')
+print(f'O banco de dados foi salvo no arquivo: {nome_do_arquivo_sqlite}')
